@@ -1,0 +1,2 @@
+## CBIR System based on Color Strcture Descriptor
+Implementació d'un sistema de CBIR basat en un descriptor CSD (Color Structure Descriptor) de MPEG-7 per a l'assignatura de Processament d'Imatge i Vídeo.

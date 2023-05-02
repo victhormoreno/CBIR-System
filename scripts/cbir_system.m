@@ -6,7 +6,7 @@
 %   2.2- Calcular distància foto usuari amb la base de dades
 %   2.3- Ordenem i ens quedem els 8 primers
 
-%% Declaració de variables (
+%% Declaració de variables 
 clear;
 
 update_H = false;
