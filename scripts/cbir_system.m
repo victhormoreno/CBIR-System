@@ -1,24 +1,33 @@
 % CBIR System based on Color Structure Descriptor
-% Descripció del procés:
+% Prog 2 - Processament d'Imatge i Video - Telecos UPC
+%
+% System Stages:
 % 1- Data Base Extraction (H)
-% 2- Trobem els matches
-%   2.1- Calcular histograma de la foto usuari
-%   2.2- Calcular distància foto usuari amb la base de dades
-%   2.3- Ordenem i ens quedem els 8 primers
+% 2- Main Program
+%   2.1- Calculate the image descriptor (h)
+%   2.2- Calculate distance between h and H / d(h,H)
+%   2.3- We order and we stay the first N
+%
+% @authors: Joana Justo and Víctor Moreno
+% @date: May 2023
+% @version 2.0
 
-%% Declaració de variables 
+%% Declaration of variables (they should be changed)
+
 clear;
+update_H = false; % True: update H matrix from data
+path = 'C:\Users\victo\Desktop\prog2'; % Path to own project folder
+bins = 256; % Number of bins of histogram
+dist_type = 'mse'; % Options: 'mse' / 'chi' / 'bachata'
+N = 10; % Number of candidates per image
 
-update_H = false;
-path = 'C:\Users\victo\Desktop\prog2';
-bins = 256;
-dist_type = 'mse';
 dinfo = dir([path,'\data\database\*.jpg']);
-N = 10;
-
 addpath([path,'\functions\descriptors']);
 addpath([path,'\functions\distances']);
+addpath([path,'\functions\distances']);
+
 %% 1- Data Base Extraction (H)  
+
 if (~exist([path,'\data\H.mat'], 'file'))||(update_H)
     H = feature_extraction_db(dinfo, bins);
     mesh(H);
@@ -28,23 +37,27 @@ else
     mesh(H);
 end
 
-%% Read num inputs input.txt
+%% 2- Main program 
 
-% Number of lines
+% Get number of inputs
 fid = fopen([path,'\data\input.txt'],'r');
 cont = textscan(fid, '%s', 'Delimiter','\n');
 n_input = numel(cont{1}); 
 fclose(fid);
 
-% Main program 
 input = fopen([path,'\data\input.txt'],'r');
 output = fopen([path,'\data\output.txt'],'w');
 
 for i = 1:length(dinfo)
     name = strtrim(fgets(input));
+    
+    % 2.1- Calculate the image descriptor (h)
     h = feature_extraction(dinfo,name,bins);
+    
+    %   2.2- Calculate distance between h and H / d(h,H)
     d = distance(h,H,dist_type);
     
+    %   2.3- We order and we stay the first N
     fprintf(output,'Retrieved list for query image %s\n',name);
     for i = 1:N
         [M,I] = min(d,[],'linear');
@@ -53,8 +66,6 @@ for i = 1:length(dinfo)
         fprintf(output,'%s\n',name_image);
     end
     fprintf(output,'\n');
-    fprintf('ite\n');
-
 end
 
 fclose(output);
