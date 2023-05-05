@@ -16,7 +16,7 @@
 
 clear;
 update_H = false; % True: update H matrix from data
-path = 'C:\Users\victo\Desktop\prog2'; % Path to own project folder
+path = 'C:\Users\joana.justo\Documents\MATLAB\PIV-Prog-2'; % Path to own project folder
 bins = 256; % Number of bins of histogram
 dist_type = 'mse'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
@@ -48,7 +48,7 @@ fclose(fid);
 input = fopen([path,'\data\input.txt'],'r');
 output = fopen([path,'\data\output.txt'],'w');
 
-for i = 1:length(dinfo)
+for i = 1:n_input
     name = strtrim(fgets(input));
     
     % 2.1- Calculate the image descriptor (h)

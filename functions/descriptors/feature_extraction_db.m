@@ -17,8 +17,9 @@ function H = feature_extraction_db(dinfo,bins)
     H = zeros(bins,n_files);
     for i=1:n_files
         img = imread([dinfo(i).folder,'\',dinfo(i).name]);
-        hmmd_img = rgb2hmmd(img);
-        h = imhist(hmmd_img,bins);
+        hmmd_img = rgb2quanthmmd(img,128);
+        %h = imhist(hmmd_img,bins);
+        h = compute_CSD(hmmd_img,128);
         H(:,i) = h;
     end
     fprintf('Base de dades creada\n');
