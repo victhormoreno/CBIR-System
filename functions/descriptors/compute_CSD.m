@@ -1,6 +1,6 @@
 function h = compute_CSD(hmmd_img,bins)
   % Declaracion variables
-  se_ini = [0 0];
+  se_ini = [1 1];
   s = size(hmmd_img);
   se_dim = 8;
   h = zeros(bins);
@@ -11,7 +11,7 @@ function h = compute_CSD(hmmd_img,bins)
         
         for k = se_ini(1):se_dim
             for l = se_ini(2):se_dim
-                colors(hmmd_img(k,l))=1;
+                colors(hmmd_img(k,l)+1)=1;
             end
         end
         h = h + colors;
