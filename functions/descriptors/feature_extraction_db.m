@@ -12,15 +12,22 @@ function H = feature_extraction_db(dinfo,bins)
     % Retorna:
     %   - H: matriu n_filesxbins amb l'histograma de cada foto
     n_files = length(dinfo);
-
+    time_remaining = 0;
+    
     fprintf('Creant base de dades\n');
-    H = zeros(bins,n_files);
+    H = zeros(128,n_files);
+    table = hmmdquanttable128();
+
     for i=1:n_files
+        clc;
+        fprintf('Generating Image Descriptor for image number %d of 2000...\r', i);
+        fprintf('Time remaining: %.2f minutes', time_remaining);
+        tic
         img = imread([dinfo(i).folder,'\',dinfo(i).name]);
-        hmmd_img = rgb2quanthmmd(img,128);
-        %h = imhist(hmmd_img,bins);
+        hmmd_img = rgb2quanthmmd(img,128,table);
         h = compute_CSD(hmmd_img,128);
-        H(:,i) = h;
+        H(:,i) = h';
+        time_remaining = (toc*(n_files-i))/60;
     end
     fprintf('Base de dades creada\n');
 end
