@@ -16,36 +16,36 @@
 
 clear;
 update_H = true; % True: update H matrix from data
-path = 'C:\Users\victo\Desktop\prog2'; % Path to own project folder
-bins = 256; % Number of bins of histogram
+path = '/Users/joanajusto/Desktop/PIV/PIV-Prog-2'; % Path to own project folder
+bins = 128; % Number of bins of histogram
 dist_type = 'mse'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
 
-dinfo = dir([path,'\data\database\*.jpg']);
-addpath([path,'\functions\descriptors']);
-addpath([path,'\functions\distances']);
+dinfo = dir([path,'/data/database/*.jpg']);
+addpath([path,'/functions/descriptors']);
+addpath([path,'/functions/distances']);
 
 %% 1- Data Base Extraction (H)  
 
-if (~exist([path,'\data\H.mat'], 'file'))||(update_H)
+if (~exist([path,'/data/H.mat'], 'file'))||(update_H)
     H = feature_extraction_db(dinfo, bins);
     mesh(H);
-    save([path,'\data\H.mat'], 'H');
+    save([path,'/data/H.mat'], 'H');
 else
-    load([path,'\data\H.mat']');
+    load([path,'/data/H.mat']');
     mesh(H);
 end
 
 %% 2- Main program 
 
 % Get number of inputs
-fid = fopen([path,'\data\input.txt'],'r');
+fid = fopen([path,'/data/input.txt'],'r');
 cont = textscan(fid, '%s', 'Delimiter','\n');
 n_input = numel(cont{1}); 
 fclose(fid);
 
-input = fopen([path,'\data\input.txt'],'r');
-output = fopen([path,'\data\output.txt'],'w');
+input = fopen([path,'/data/input.txt'],'r');
+output = fopen([path,'/data/output.txt'],'w');
 
 for i = 1:n_input
     name = strtrim(fgets(input));
@@ -69,8 +69,4 @@ end
 
 fclose(output);
 fclose(input);
-
 %%
-img = imread([dinfo(1).folder,'/',dinfo(1).name]);
-hmmd_img = rgb2quanthmmd(img,128);
-h = compute_CSD(hmmd_img,128);

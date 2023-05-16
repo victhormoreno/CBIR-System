@@ -15,17 +15,19 @@ function H = feature_extraction_db(dinfo,bins)
     time_remaining = 0;
     
     fprintf('Creant base de dades\n');
+    %H = zeros(n_files,128);
     H = zeros(128,n_files);
-    table = hmmdquanttable128();
 
     for i=1:n_files
         clc;
         fprintf('Generating Image Descriptor for image number %d of 2000...\r', i);
         fprintf('Time remaining: %.2f minutes', time_remaining);
         tic
-        img = imread([dinfo(i).folder,'\',dinfo(i).name]);
-        hmmd_img = rgb2quanthmmd(img,128,table);
+        img = imread([dinfo(i).folder,'/',dinfo(i).name]);
+        hmmd_img = hmmd_quantification(img,128);
+        %[h,~]=histcounts(hmmd_img(:),0:128);
         h = compute_CSD(hmmd_img,128);
+        %H(i,:) = h';
         H(:,i) = h';
         time_remaining = (toc*(n_files-i))/60;
     end

@@ -1,8 +1,8 @@
 %% Open Input txt
 clear;
-path = 'C:\Users\joana.justo\Documents\MATLAB\PIV-Prog-2';
+path = '/Users/joanajusto/Desktop/PIV/PIV-Prog-2';
 
-fid = fopen([path,'\data\input.txt'],'r');
+fid = fopen([path,'/data/input.txt'],'r');
 cont = textscan(fid, '%s', 'Delimiter','\n');
 num_lineas = numel(cont{1});
 fclose(fid);
@@ -10,8 +10,8 @@ fclose(fid);
 %% Recall and Precision Compute
 Num_images = 2000;
 N=10;
-fid = fopen([path,'\data\input.txt'],'r');
-fid2 = fopen([path,'\data\output.txt'],'r');
+fid = fopen([path,'/data/input.txt'],'r');
+fid2 = fopen([path,'/data/output.txt'],'r');
 
 Precision = zeros(N);
 Recall = zeros(N);
