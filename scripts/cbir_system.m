@@ -16,8 +16,8 @@
 
 clear;
 update_H = true; % True: update H matrix from data
-path = 'C:\Users\victo\Desktop\prog2'; % Path to own project folder
-bins = 256; % Number of bins of histogram
+path = 'C:\Users\joana.justo\Documents\MATLAB\PIV-Prog-2'; % Path to own project folder
+bins = 64; % Number of bins of histogram
 dist_type = 'bachata'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
 
@@ -47,12 +47,13 @@ fclose(fid);
 input = fopen([path,'\data\input.txt'],'r');
 output = fopen([path,'\data\output.txt'],'w');
 
+tic
 for i = 1:n_input
     name = strtrim(fgets(input));
     
     % 2.1- Calculate the image descriptor (h)
-    h = feature_extraction(dinfo,name,bins);
     
+    h = feature_extraction(dinfo,name,bins);
     %   2.2- Calculate distance between h and H / d(h,H)
     d = distance(h,H,dist_type);
     
@@ -66,7 +67,7 @@ for i = 1:n_input
     end
     fprintf(output,'\n');
 end
+time = toc;
 
 fclose(output);
 fclose(input);
-%%

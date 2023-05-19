@@ -1,6 +1,6 @@
 %% Open Input txt
 clear;
-path = 'C:\Users\victo\Desktop\prog2';
+path = 'C:\Users\joana.justo\Documents\MATLAB\PIV-Prog-2';
 
 fid = fopen([path,'\data\input.txt'],'r');
 cont = textscan(fid, '%s', 'Delimiter','\n');

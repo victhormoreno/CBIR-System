@@ -22,11 +22,11 @@ function h = compute_CSD(hmmd_img,bins)
   h = zeros(bins,1);
   colors = zeros(bins,1);
 
-  for i = 1:s(1)-se_dim
-    for j = 1:s(2)-se_dim
+  for i = 1:s(1)-se_dim + 1
+    for j = 1:s(2)-se_dim + 1
         
-        for k = i:se_dim
-            for l = j:se_dim
+        for k = i:(i+se_dim-1)
+            for l = j:(j+se_dim-1)
                 colors(hmmd_img_ds(k,l)+1)=1;
             end
         end
