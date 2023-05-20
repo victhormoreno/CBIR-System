@@ -1,6 +1,12 @@
 # Color Strcture Descriptor - based CBIR System
 Implementació d'un sistema de CBIR basat en un descriptor CSD (Color Structure Descriptor) de MPEG-7 per a l'assignatura de Processament d'Imatge i Vídeo.
 
+<p align="center">[`Català] / <a href="./README_EN.md">English</a></p>
+
+
+![Visualització de tots els descriptors CSD per a les 2.000 imatges del dataset UKBench](/docs/media/descriptors_dataset.png)
+
+
 ## Introducció
 Aquest repositori conté els fitxers i codis relacionats amb la segona versió del sistema CBIR. El projecte ha estat realitzat per la [Joana Justo](https://github.com/joanajusto) i el [Víctor Moreno](https://github.com/victhormoreno), estudiants de telecos, com a treball del laboratori de PIV durant el quadrimestre de primavera de 2023.
 
@@ -14,6 +20,9 @@ Els informes disponibles són:
 ## Funcionament General del Sistema
 
 ## Estructura del sistema
+
+L'estructura del sistema està organitzada en diversos directoris. El directori [`data`](/data/) conté els fitxers de dades necessaris, com ara la matriu de característiques H.mat i els fitxers d'entrada i sortida. El directori [`functions`](/functions/) conté les funcions que realitzen l'extracció de descriptors i el càlcul de distàncies entre imatges. D'altra banda, el directori [`scripts`](/scripts/) conté els arxius de codi principals per a l'execució del sistema.
+
 ```
 +---data
 |   |   H.mat
@@ -28,6 +37,23 @@ Els informes disponibles són:
         cbir_system.m
         evaluation.m
 ```
+
+El directori principal del sistema conté els següents subdirectoris i fitxers:
+
++ [`H.mat`](/data/H.mat): Aquest fitxer conté la matriu de característiques de les imatges emmagatzemades a la base de dades.
+
++ [`input.txt`](/data/input.txt): Aquest fitxer conté les dades d'entrada per a la consulta del sistema.
+
++ [`output.txt`](/data/output.txt): Aquest fitxer contindrà les sortides o resultats generats pel sistema.
+
++ [`descriptors`](/functions/descriptors/): Aquest subdirectori conté les funcions relacionades amb la extracció de descriptors de les imatges.
+
++ [`distances`](/functions/distances/): Aquest subdirectori conté les funcions per a calcular les distàncies entre descriptors d'imatges.
+scripts: Aquest directori conté els scripts o arxius de codi per a executar el sistema.
+
++ [`cbir_system.m`](/scripts/cbir_system.m) : Aquest és l'arxiu principal del sistema, que conté el codi per a executar el sistema de CBIR.
+
++ [`evaluation.m`](/scripts/evaluation.m): Aquest arxiu pot contenir el codi per a avaluar els resultats o rendiment del sistema.
 
 ## Utilitzar el sistema CBIR 
 ### 0. Clonació repositori
@@ -74,6 +100,9 @@ ukbench00801.jpg
 ```
 
 ### 3. Executar el Sistema
+
+Un cop realitzats els passos anteriors, ja es pot executar el programa principal. Per a fer això, cal accedir a `/scripts/cbir_system.m` i prèmer el botó de `run` al matlab.
+
 ### 4. Evaluacio comportament 
 Analitza els resultats obtinguts i avalua el comportament del sistema CBIR en base als criteris establerts. Fes els ajustaments necessaris als paràmetres o als descriptors per aconseguir els resultats desitjats.
 
