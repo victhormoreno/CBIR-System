@@ -17,7 +17,7 @@
 clear;
 update_H = false; % True: update H matrix from data
 path = 'C:\Users\victo\Desktop\prog2'; % Path to own project folder
-bins = 256; % Number of bins of histogram: 128 or 256W
+bins = 256; % Number of bins of histogram: 128 or 256
 dist_type = 'bachata'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
 
@@ -51,8 +51,8 @@ for i = 1:n_input
     name = strtrim(fgets(input));
     
     % 2.1- Calculate the image descriptor (h)
-    
     h = feature_extraction(dinfo,name,bins);
+    
     %   2.2- Calculate distance between h and H / d(h,H)
     d = distance(h,H,dist_type);
     

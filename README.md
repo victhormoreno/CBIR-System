@@ -2,14 +2,14 @@
 Implementació d'un sistema de CBIR basat en un descriptor CSD (Color Structure Descriptor) de MPEG-7 per a l'assignatura de Processament d'Imatge i Vídeo.
 
 ## Introducció
-Aquest repositori conté els fitxers i codis relacionats amb la segona versió del sistema CBIR. El projecte ha estat realitzat per la [Joana Justo](joanajusto) i el [Víctor Moreno]( victhormoreno) com a projecte del laboratori de PIV durant el quadrimestre de primavera de 2023.
+Aquest repositori conté els fitxers i codis relacionats amb la segona versió del sistema CBIR. El projecte ha estat realitzat per la [Joana Justo](https://github.com/joanajusto) i el [Víctor Moreno](https://github.com/victhormoreno), estudiants de telecos, com a treball del laboratori de PIV durant el quadrimestre de primavera de 2023.
 
 Si desitges obtenir informació més detallada i tècnica sobre el sistema, així com els seus resultats i rendiment, et recomanem que consultis els informes que es troben a la carpeta [`/docs/reports/`](/docs/reports) d'aquest repositori.
 
 Els informes disponibles són:
 
-1. Informe del prog1: [Descarrega aquí](./docs/reports/memoria_prog1_moreno_justo.pdf)
-2. Informe de prog2: [Descarrega aquí](./doc/reports/informe_rendiment.pdf)
+1. Informe del prog1: [Descarrega aquí](docs/reports/memoria_prog1_moreno_justo.pdf)
+2. Informe del prog2: [Descarrega aquí](doc/reports/informe_rendiment.pdf)
 
 ## Funcionament General del Sistema
 
