@@ -1,7 +1,17 @@
 # Color Strcture Descriptor - based CBIR System
 Implementació d'un sistema de CBIR basat en un descriptor CSD (Color Structure Descriptor) de MPEG-7 per a l'assignatura de Processament d'Imatge i Vídeo.
 
-## Funcionament del Sistema
+## Introducció
+Aquest repositori conté els fitxers i codis relacionats amb la segona versió del sistema CBIR. El projecte ha estat realitzat per la [Joana Justo](joanajusto) i el [Víctor Moreno]( victhormoreno) com a projecte del laboratori de PIV durant el quadrimestre de primavera de 2023.
+
+Si desitges obtenir informació més detallada i tècnica sobre el sistema, així com els seus resultats i rendiment, et recomanem que consultis els informes que es troben a la carpeta [`/docs/reports/`](/docs/reports) d'aquest repositori.
+
+Els informes disponibles són:
+
+1. Informe del prog1: [Descarrega aquí](./docs/reports/memoria_prog1_moreno_justo.pdf)
+2. Informe de prog2: [Descarrega aquí](./doc/reports/informe_rendiment.pdf)
+
+## Funcionament General del Sistema
 
 ## Estructura del sistema
 ```
@@ -33,7 +43,7 @@ Un cop descarregada, descomprimeix-la i guarda els arxius d'imatge a la carpeta 
 ### 2. Personalitza el Sistema
 
 #### 2.1.Canviar els paràmetres
-Modifica els paràmetres segons les teves preferències. Edita la primera secció del fitxer `/scripts/cbir_system.m` per especificar les opcions de cerca i els descriptors que vols utilitzar.
+Modifica els paràmetres segons les teves preferències. Edita la primera secció del fitxer [`/scripts/cbir_system.m`](scripts/cbir_system.m) per especificar les opcions de cerca i els descriptors que vols utilitzar.
 
 ```
 update_H = false; % True: update H matrix from data
@@ -43,8 +53,15 @@ dist_type = 'bachata'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
 ```
 
++ ``update_H``:
++ ``path``:
++ ``bins``:
++ ``dist_type``:
++ ``N``:
+
+
 #### 2.2. Modificar input.txt
-Modifica el l'arxiu `\data\input.txt` per a realitzar la cerca d'imatges. Aquest fitxer conté els noms de les imatges a cercar, separats per salts de línia. Al repositori hi ha un fitxer d'exemple:
+Modifica el l'arxiu [`\data\input.txt`](data/input.txt) per a realitzar la cerca d'imatges. Aquest fitxer conté els noms de les imatges a cercar, separats per salts de línia. Al repositori hi ha un fitxer d'exemple:
 
 ```
 ukbench01701.jpg
