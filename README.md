@@ -4,7 +4,7 @@ Implementació d'un sistema de CBIR basat en un descriptor CSD (Color Structure 
 <p align="center">[Català] / <a href="./README_EN.md">English</a></p>
 
 
-<img src="/docs/media/descriptors_dataset.png" alt="Visualització dels descriptors de color CSD de les 2.000 imatges del dataset UKBench" style="max-width: 200px;" />
+<img src="/docs/media/descriptors_dataset.png" alt="Visualització dels descriptors de color CSD de les 2.000 imatges del dataset UKBench" style="max-width: 50px;" />
 
 
 ## Introducció
@@ -79,11 +79,11 @@ dist_type = 'bachata'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
 ```
 
-+ ``update_H``:
-+ ``path``:
-+ ``bins``:
-+ ``dist_type``:
-+ ``N``:
++ ``update_H``: Un booleà que determina si vols actualitzar la matriu H a partir de les dades. Si és true, es realitzarà una actualització de la matriu H; si és false, la matriu H no es modificarà.
++ ``path``:  La ruta a la carpeta del teu propi projecte. Assegura't d'especificar la ruta correcta en aquest paràmetre.
++ ``bins``: El nombre de bins de l'histograma. Pots seleccionar 128 o 256 bins, depenent de les teves preferències i necessitats.
++ ``dist_type``: El tipus de distància que vols utilitzar per a la cerca. Tens les següents opcions: 'mse' (Mean Squared Error), 'chi' (Chi-Squared), 'bachata' (Bhattacharyya). Selecciona el tipus de distància que millor s'adapti al teu sistema.
++ ``N``:  El nombre de candidats per imatge que vols obtenir en la cerca. Pots ajustar aquest valor segons la quantitat de resultats desitjats.
 
 
 #### 2.2. Modificar input.txt
