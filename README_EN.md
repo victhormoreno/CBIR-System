@@ -4,7 +4,7 @@ Implementació d'un sistema de CBIR basat en un descriptor CSD (Color Structure 
 <p align="center">[Català] / <a href="./README_EN.md">English</a></p>
 
 
-<img src="/docs/media/descriptors_dataset.png" alt="Visualització dels descriptors de color CSD de les 2.000 imatges del dataset UKBench" style="max-width: 200px;" />
+![Visualització de tots els descriptors CSD per a les 2.000 imatges del dataset UKBench](/docs/media/descriptors_dataset.png){width="100px" height="100px"}
 
 
 ## Introducció
