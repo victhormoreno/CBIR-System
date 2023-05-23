@@ -17,8 +17,7 @@
 clear;
 update_H = true; % True: update H matrix from data
 path = 'C:\Users\victo\Desktop\prog2'; % Path to own project folder
-quantification = 256; % Number of levels img hmmd: 128 or 256
-bins = 128; 
+bins = 256; 
 dist_type = 'bachata'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
 
@@ -29,7 +28,7 @@ addpath([path,'\functions\distances']);
 %% 1- Data Base Extraction (H)  
 
 if (~exist([path,'\data\H.mat'], 'file'))||(update_H)
-    H = feature_extraction_db(dinfo, bins, quantification);
+    H = feature_extraction_db(dinfo, bins);
     mesh(H);
     save([path,'\data\H.mat'], 'H');
 else
@@ -52,7 +51,7 @@ for i = 1:n_input
     name = strtrim(fgets(input));
     
     % 2.1- Calculate the image descriptor (h)
-    h = feature_extraction(dinfo,name,bins,quantification);
+    h = feature_extraction(dinfo,name,bins);
     
     %   2.2- Calculate distance between h and H / d(h,H)
     d = distance(h,H,dist_type);
