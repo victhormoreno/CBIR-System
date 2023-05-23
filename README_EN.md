@@ -1,27 +1,29 @@
-# Color Strcture Descriptor - based CBIR System
-Implementació d'un sistema de CBIR basat en un descriptor CSD (Color Structure Descriptor) de MPEG-7 per a l'assignatura de Processament d'Imatge i Vídeo.
-
-<p align="center">[Català] / <a href="./README_EN.md">English</a></p>
+# Color Structure Descriptor - based CBIR System
+Implementation of a CBIR (Content-Based Image Retrieval) system based on the Color Structure Descriptor (CSD) of MPEG-7 for the Image and Video Processing subject.
 
 
-![Visualització de tots els descriptors CSD per a les 2.000 imatges del dataset UKBench](/docs/media/descriptors_dataset.png){width="100px" height="100px"}
+<p align="center"><a href="./README.md">Català</a> / [English]</p>
 
 
-## Introducció
-Aquest repositori conté els fitxers i codis relacionats amb la segona versió del sistema CBIR. El projecte ha estat realitzat per la [Joana Justo](https://github.com/joanajusto) i el [Víctor Moreno](https://github.com/victhormoreno), estudiants de telecos, com a treball del laboratori de PIV durant el quadrimestre de primavera de 2023.
+<p align="center">
+  <img src="./docs/media/descriptors_dataset.png" /><br />
+  Visualization of all CSD descriptors for the 2,000 images in the UKBench dataset
+</p>
 
-Si desitges obtenir informació més detallada i tècnica sobre el sistema, així com els seus resultats i rendiment, et recomanem que consultis els informes que es troben a la carpeta [`/docs/reports/`](/docs/reports) d'aquest repositori.
 
-Els informes disponibles són:
+## Introduction
+This repository contains the files and code related to the second version of the CBIR system. The project has been developed by [Joana Justo](https://github.com/joanajusto) and el [Víctor Moreno](https://github.com/victhormoreno), telecommunications students, as part of the Image and Video Processing lab during the spring semester of 2023.
 
-1. Informe del prog1: [Descarrega aquí](docs/reports/memoria_prog1_moreno_justo.pdf)
-2. Informe del prog2: [Descarrega aquí](doc/reports/informe_rendiment.pdf)
+If you want more detailed and technical information about the system, as well as its results and performance, we recommend checking the reports located in the [`/docs/reports/`](/docs/reports) folder of this repository.
 
-## Funcionament General del Sistema
+The available reports are:
 
-## Estructura del sistema
+1. prog1 report: [Download here](docs/reports/memoria_prog1_moreno_justo.pdf)
+2. prog2 report: [Download here](doc/reports/informe_rendiment.pdf)
 
-L'estructura del sistema està organitzada en diversos directoris. El directori [`data`](/data/) conté els fitxers de dades necessaris, com ara la matriu de característiques H.mat i els fitxers d'entrada i sortida. El directori [`functions`](/functions/) conté les funcions que realitzen l'extracció de descriptors i el càlcul de distàncies entre imatges. D'altra banda, el directori [`scripts`](/scripts/) conté els arxius de codi principals per a l'execució del sistema.
+## System Structure
+
+The system structure is organized into several directories. The [`data`](/data/) directory contains the necessary data files, such as the H.mat feature matrix and input/output files. The [`functions`](/functions/) directory contains the functions for descriptor extraction and image distance calculation. On the other hand, the [`scripts`](/scripts/)  directory contains the main code files for executing the system.
 
 ```
 +---data
@@ -38,38 +40,37 @@ L'estructura del sistema està organitzada en diversos directoris. El directori 
         evaluation.m
 ```
 
-El directori principal del sistema conté els següents subdirectoris i fitxers:
+The main directory of the system contains the following subdirectories and files:
 
-+ [`H.mat`](/data/H.mat): Aquest fitxer conté la matriu de característiques de les imatges emmagatzemades a la base de dades.
++ [`H.mat`](/data/H.mat): This file contains the feature matrix of the images stored in the database.
 
-+ [`input.txt`](/data/input.txt): Aquest fitxer conté les dades d'entrada per a la consulta del sistema.
++ [`input.txt`](/data/input.txt): This file contains the input data for the system query.
 
-+ [`output.txt`](/data/output.txt): Aquest fitxer contindrà les sortides o resultats generats pel sistema.
++ [`output.txt`](/data/output.txt):  This file will contain the system outputs or results.
 
-+ [`descriptors`](/functions/descriptors/): Aquest subdirectori conté les funcions relacionades amb la extracció de descriptors de les imatges.
++ [`descriptors`](/functions/descriptors/): This subdirectory contains the functions related to image descriptor extraction.
 
-+ [`distances`](/functions/distances/): Aquest subdirectori conté les funcions per a calcular les distàncies entre descriptors d'imatges.
-scripts: Aquest directori conté els scripts o arxius de codi per a executar el sistema.
++ [`distances`](/functions/distances/): This subdirectory contains the functions for calculating distances between image descriptors.
 
-+ [`cbir_system.m`](/scripts/cbir_system.m) : Aquest és l'arxiu principal del sistema, que conté el codi per a executar el sistema de CBIR.
++ [`cbir_system.m`](/scripts/cbir_system.m) : This is the main file of the system, which contains the code to run the CBIR system.
 
-+ [`evaluation.m`](/scripts/evaluation.m): Aquest arxiu pot contenir el codi per a avaluar els resultats o rendiment del sistema.
++ [`evaluation.m`](/scripts/evaluation.m): This file can contain the code to evaluate the results or performance of the system.
 
-## Utilitzar el sistema CBIR 
-### 0. Clonació repositori
-Per començar, clona el repositori utilitzant la següent comanda: 
+## Using the CBIR System
+### 0. Clone the repository
+To get started, clone the repository using the following command:
 
 ``git clone https://github.com/victhormoreno/PIV-Prog-2``
 
-### 1. Afegir database
-Descarrega la base de dades des de l'enllaç següent: [https://archive.org/details/ukbench](https://archive.org/details/ukbench).  
+### 1. Add the database
+Download the database from the following link: [https://archive.org/details/ukbench](https://archive.org/details/ukbench).  
 
-Un cop descarregada, descomprimeix-la i guarda els arxius d'imatge a la carpeta `/data/database`.
+Once downloaded, extract it and save the image files in the `/data/database` folder.
 
-### 2. Personalitza el Sistema
+### 2. Customize the System
 
-#### 2.1.Canviar els paràmetres
-Modifica els paràmetres segons les teves preferències. Edita la primera secció del fitxer [`/scripts/cbir_system.m`](scripts/cbir_system.m) per especificar les opcions de cerca i els descriptors que vols utilitzar.
+#### 2.1. Change the parameters
+Modify the parameters according to your preferences. Edit the first section of the file  [`/scripts/cbir_system.m`](scripts/cbir_system.m)  to specify the search options and the descriptors you want to use.
 
 ```
 update_H = false; % True: update H matrix from data
@@ -79,15 +80,15 @@ dist_type = 'bachata'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
 ```
 
-+ ``update_H``:
-+ ``path``:
-+ ``bins``:
-+ ``dist_type``:
-+ ``N``:
++ ``update_H``: A Boolean flag that determines whether you want to update the H matrix from the data. If set to true, the H matrix will be updated; if set to false, the H matrix will not be modified.
++ ``path``:  The path to your own project folder. Make sure to specify the correct path in this parameter.
++ ``bins``: The number of bins for the histogram. You can choose between 128 or 256 bins, depending on your preferences and needs.
++ ``dist_type``: The type of distance you want to use for the search. You have the following options: 'mse' (Mean Squared Error), 'chi' (Chi-Squared), 'bachata' (Bhattacharyya). Select the distance type that best suits your system.
++ ``N``:  The number of candidates per image that you want to obtain in the search. You can adjust this value based on the desired number of results.
 
 
-#### 2.2. Modificar input.txt
-Modifica el l'arxiu [`\data\input.txt`](data/input.txt) per a realitzar la cerca d'imatges. Aquest fitxer conté els noms de les imatges a cercar, separats per salts de línia. Al repositori hi ha un fitxer d'exemple:
+#### 2.2. Modify input.txt
+Modify the file [`\data\input.txt`](data/input.txt) to perform the image search. This file contains the names of the images to be searched, separated by line breaks. An example file is provided in the repository:
 
 ```
 ukbench01701.jpg
@@ -99,12 +100,17 @@ ukbench01883.jpg
 ukbench00801.jpg
 ```
 
-### 3. Executar el Sistema
+### 3. Execute the System
 
-Un cop realitzats els passos anteriors, ja es pot executar el programa principal. Per a fer això, cal accedir a `/scripts/cbir_system.m` i prèmer el botó de `run` al matlab.
+Once the previous steps have been completed, the main program can be executed. To do this, access `/scripts/cbir_system.m`  and press the  `run` button in matlab.
 
-### 4. Evaluacio comportament 
-Analitza els resultats obtinguts i avalua el comportament del sistema CBIR en base als criteris establerts. Fes els ajustaments necessaris als paràmetres o als descriptors per aconseguir els resultats desitjats.
+### 4. Evaluation of Performance
+Analyze the obtained results and evaluate the performance of the CBIR system based on the established criteria. Make the necessary adjustments to the parameters or descriptors to achieve the desired results. The script `evaluation.m`  can be used to calculate the F-score and the Recall and Precision curves for a given `output.txt` file.
 
-Aquesta és una estructura bàsica per utilitzar el sistema CBIR. Si cal, adapta les instruccions en funció de les teves necessitats i requisits específics.
+This is a basic structure for using the CBIR system. If needed, adapt the instructions according to your specific needs and requirements.
+
+
+
+
+
 

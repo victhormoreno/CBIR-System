@@ -1,10 +1,15 @@
-# Color Strcture Descriptor - based CBIR System
+# Color Structure Descriptor - based CBIR System
 Implementació d'un sistema de CBIR basat en un descriptor CSD (Color Structure Descriptor) de MPEG-7 per a l'assignatura de Processament d'Imatge i Vídeo.
 
 <p align="center">[Català] / <a href="./README_EN.md">English</a></p>
 
+<p align="center">
+  <img src="./docs/media/descriptors_dataset.png" /><br />
+  Visualització de tots els descriptors CSD per a les 2.000 imatges del dataset UKBench
+</p>
 
-<img src="/docs/media/descriptors_dataset.png" alt="Visualització dels descriptors de color CSD de les 2.000 imatges del dataset UKBench" style="max-width: 50px;" />
+![]()
+
 
 
 ## Introducció
@@ -16,8 +21,6 @@ Els informes disponibles són:
 
 1. Informe del prog1: [Descarrega aquí](docs/reports/memoria_prog1_moreno_justo.pdf)
 2. Informe del prog2: [Descarrega aquí](doc/reports/informe_rendiment.pdf)
-
-## Funcionament General del Sistema
 
 ## Estructura del sistema
 
@@ -46,7 +49,7 @@ El directori principal del sistema conté els següents subdirectoris i fitxers:
 
 + [`output.txt`](/data/output.txt): Aquest fitxer contindrà les sortides o resultats generats pel sistema.
 
-+ [`descriptors`](/functions/descriptors/): Aquest subdirectori conté les funcions relacionades amb la extracció de descriptors de les imatges.
++ [`descriptors`](/functions/descriptors/): Aquest subdirectori conté les funcions relacionades amb l'extracció de descriptors de les imatges.
 
 + [`distances`](/functions/distances/): Aquest subdirectori conté les funcions per a calcular les distàncies entre descriptors d'imatges.
 scripts: Aquest directori conté els scripts o arxius de codi per a executar el sistema.
@@ -68,8 +71,8 @@ Un cop descarregada, descomprimeix-la i guarda els arxius d'imatge a la carpeta 
 
 ### 2. Personalitza el Sistema
 
-#### 2.1.Canviar els paràmetres
-Modifica els paràmetres segons les teves preferències. Edita la primera secció del fitxer [`/scripts/cbir_system.m`](scripts/cbir_system.m) per especificar les opcions de cerca i els descriptors que vols utilitzar.
+#### 2.1. Canviar els paràmetres
+Modifica els paràmetres segons les teves preferències. Edita la primera secció del fitxer [`/scripts/cbir_system.m`](scripts/cbir_system.m) per especificar les opcions de cerca i els descriptors que vols emprar.
 
 ```
 update_H = false; % True: update H matrix from data
@@ -87,7 +90,7 @@ N = 10; % Number of candidates per image
 
 
 #### 2.2. Modificar input.txt
-Modifica el l'arxiu [`\data\input.txt`](data/input.txt) per a realitzar la cerca d'imatges. Aquest fitxer conté els noms de les imatges a cercar, separats per salts de línia. Al repositori hi ha un fitxer d'exemple:
+Modifica l'arxiu [`\data\input.txt`](data/input.txt) per a realitzar la cerca d'imatges. Aquest fitxer conté els noms de les imatges a cercar, separats per salts de línia. Al repositori hi ha un fitxer d'exemple:
 
 ```
 ukbench01701.jpg
@@ -101,10 +104,10 @@ ukbench00801.jpg
 
 ### 3. Executar el Sistema
 
-Un cop realitzats els passos anteriors, ja es pot executar el programa principal. Per a fer això, cal accedir a `/scripts/cbir_system.m` i prèmer el botó de `run` al matlab.
+Un cop duts a terme els passos anteriors, ja es pot executar el programa principal. Per a fer això, cal accedir a `/scripts/cbir_system.m` i prémer el botó de `run` al matlab.
 
-### 4. Evaluacio comportament 
-Analitza els resultats obtinguts i avalua el comportament del sistema CBIR en base als criteris establerts. Fes els ajustaments necessaris als paràmetres o als descriptors per aconseguir els resultats desitjats.
+### 4. Avaluació comportament 
+Analitza els resultats assolits i avalua el comportament del sistema CBIR d'acord amb els criteris establerts. Fes els ajustaments necessaris als paràmetres o als descriptors per aconseguir els resultats desitjats. El script `evaluation.m` es pot fer servir per calcular la F-score i les corbes de Recall i Precision, per un fitxer `output.txt` donat.
 
 Aquesta és una estructura bàsica per utilitzar el sistema CBIR. Si cal, adapta les instruccions en funció de les teves necessitats i requisits específics.
 
