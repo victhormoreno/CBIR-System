@@ -77,6 +77,6 @@ xlabel('Recall');
 ylabel('Precision');
 xlim([0,1]);
 ylim([0,1]);
-legend(['MSE',' /F-score = ' num2str(f(1)), '/ t=628.114 ms'], ['Chi-squared','/F-score = ' num2str(f2(1)),' /t=285.244 ms'],['Bhattacharyya',' /F-score = ' num2str(f3(1)),' /t=285.244 ms']);
+legend(['MSE',' /F-score = ' num2str(f(1))], ['Chi-squared','/F-score = ' num2str(f2(1))],['Bhattacharyya',' /F-score = ' num2str(f3(1))]);
 title('Content-Based Image Retrieval Performance');
 grid on;

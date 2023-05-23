@@ -1,4 +1,4 @@
-function H = feature_extraction_db(dinfo,bins)
+function H = feature_extraction_db(dinfo,bins,quantification)
     % Extract features from a set of images and store them in a matrix
     % Inputs:
     %   - dinfo: a structure array containing information about the images
@@ -18,8 +18,8 @@ function H = feature_extraction_db(dinfo,bins)
         fprintf('Time remaining: %.d seconds', time_remaining);
         tic
         img = imread([dinfo(i).folder,'\',dinfo(i).name]); % Read the image file
-        hmmd_img = hmmd_quantification(img,bins);  % Perform HMMD quantification on the image
-        h = compute_CSD(hmmd_img,bins); % Compute the Color Structure Descriptor (CSD) for the quantified image
+        hmmd_img = hmmd_quantification(img,quantification);  % Perform HMMD quantification on the image
+        h = compute_CSD(hmmd_img,bins,quantification); % Compute the Color Structure Descriptor (CSD) for the quantified image
         H(:,i) = h'; % Store the computed feature vector in the feature matrix
         time_remaining = round(toc*(n_files-i));
     end
