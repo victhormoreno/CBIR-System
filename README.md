@@ -4,12 +4,9 @@ Implementació d'un sistema de CBIR basat en un descriptor CSD (Color Structure 
 <p align="center">[Català] / <a href="./README_EN.md">English</a></p>
 
 <p align="center">
-  <img src="./docs/media/descriptors_dataset.png" /><br />
+  <img src="./docs/media/descriptors_dataset.png"  width="350" /><br />
   Visualització de tots els descriptors CSD per a les 2.000 imatges del dataset UKBench
 </p>
-
-![]()
-
 
 
 ## Introducció
@@ -21,6 +18,8 @@ Els informes disponibles són:
 
 1. Informe del prog1: [Descarrega aquí](docs/reports/memoria_prog1_moreno_justo.pdf)
 2. Informe del prog2: [Descarrega aquí](doc/reports/informe_rendiment.pdf)
+
+La primera versió del sistema (prog 1) es pot trobar a la branca [prog1](../../tree/prog1) d'aquest repositori. Aquesta, utilitza l'histograma de la imatge en escala de grisos com a descriptor en lloc del CSD.
 
 ## Estructura del sistema
 
@@ -77,14 +76,16 @@ Modifica els paràmetres segons les teves preferències. Edita la primera secci�
 ```
 update_H = false; % True: update H matrix from data
 path = 'C:\Users\victo\Desktop\prog2'; % Path to own project folder
-bins = 256; % Number of bins of histogram: 128 or 256W
+quantification = 256; % Number of levels img hmmd: 128 or 256
+bins = 128; Number bins of the descritor
 dist_type = 'bachata'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
 ```
 
 + ``update_H``: Un booleà que determina si vols actualitzar la matriu H a partir de les dades. Si és true, es realitzarà una actualització de la matriu H; si és false, la matriu H no es modificarà.
 + ``path``:  La ruta a la carpeta del teu propi projecte. Assegura't d'especificar la ruta correcta en aquest paràmetre.
-+ ``bins``: El nombre de bins de l'histograma. Pots seleccionar 128 o 256 bins, depenent de les teves preferències i necessitats.
++ ``quantification``: Nombre de nivells de la imatge quantificada en HMMD.
++ ``bins``: El nombre de bins del descriptor. Pots seleccionar entre [1,quantification], depenent de les teves preferències i necessitats.
 + ``dist_type``: El tipus de distància que vols utilitzar per a la cerca. Tens les següents opcions: 'mse' (Mean Squared Error), 'chi' (Chi-Squared), 'bachata' (Bhattacharyya). Selecciona el tipus de distància que millor s'adapti al teu sistema.
 + ``N``:  El nombre de candidats per imatge que vols obtenir en la cerca. Pots ajustar aquest valor segons la quantitat de resultats desitjats.
 

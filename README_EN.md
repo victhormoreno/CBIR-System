@@ -6,7 +6,7 @@ Implementation of a CBIR (Content-Based Image Retrieval) system based on the Col
 
 
 <p align="center">
-  <img src="./docs/media/descriptors_dataset.png" /><br />
+  <img src="./docs/media/descriptors_dataset.png" width="350" /><br />
   Visualization of all CSD descriptors for the 2,000 images in the UKBench dataset
 </p>
 
@@ -20,6 +20,8 @@ The available reports are:
 
 1. prog1 report: [Download here](docs/reports/memoria_prog1_moreno_justo.pdf)
 2. prog2 report: [Download here](doc/reports/informe_rendiment.pdf)
+
+The first version of the system (prog 1) can be found at branch [prog1](../../tree/prog1) from this repository. This one uses the histogram of the grayscale image as a descriptor in the CSD location.
 
 ## System Structure
 
@@ -75,14 +77,16 @@ Modify the parameters according to your preferences. Edit the first section of t
 ```
 update_H = false; % True: update H matrix from data
 path = 'C:\Users\victo\Desktop\prog2'; % Path to own project folder
-bins = 256; % Number of bins of histogram: 128 or 256W
+quantification = 256; % Number of levels img hmmd: 128 or 256
+bins = 128; Number bins of the descritor
 dist_type = 'bachata'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
 ```
 
 + ``update_H``: A Boolean flag that determines whether you want to update the H matrix from the data. If set to true, the H matrix will be updated; if set to false, the H matrix will not be modified.
 + ``path``:  The path to your own project folder. Make sure to specify the correct path in this parameter.
-+ ``bins``: The number of bins for the histogram. You can choose between 128 or 256 bins, depending on your preferences and needs.
++ ``quantification``: Number of levels img hmmd: 128 or 256
++ ``bins``: The number of bins for the descriptor. You can choose between 1 and quantification, depending on your preferences and needs.
 + ``dist_type``: The type of distance you want to use for the search. You have the following options: 'mse' (Mean Squared Error), 'chi' (Chi-Squared), 'bachata' (Bhattacharyya). Select the distance type that best suits your system.
 + ``N``:  The number of candidates per image that you want to obtain in the search. You can adjust this value based on the desired number of results.
 
