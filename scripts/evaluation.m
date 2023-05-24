@@ -2,12 +2,13 @@
 clear;
 path = 'C:\Users\victo\Desktop\prog2';
 
+%% Recall and Precision Compute
 fid = fopen([path,'\data\input.txt'],'r');
 cont = textscan(fid, '%s', 'Delimiter','\n');
 num_lineas = numel(cont{1});
 fclose(fid);
 
-%% Recall and Precision Compute
+
 Num_images = 2000;
 N=10;
 fid = fopen([path,'\data\input.txt'],'r');

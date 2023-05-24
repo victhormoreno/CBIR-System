@@ -9,10 +9,14 @@ function h = compute_CSD(hmmd_img,bins,quantification)
     factor = 2;
     se_dim = 16;
     hmmd_img_ds = downsampling(hmmd_img,factor,1); % Downsampling the HMMD image by a factor of 2
-
+    
+    hmmd_img_ds = hmmd_img_ds * ((bins-1)/(quantification-1)); % Rescaling img
+    hmmd_img_ds = round(hmmd_img_ds); % Rounding the values
+    hmmd_img_ds = max(0, min(bins, hmmd_img_ds)); % Clipping the values to the range of 0 to 255
+                
     s = size(hmmd_img_ds);
-    h = zeros(quantification,1);
-    colors = zeros(quantification,1);
+    h = zeros(bins,1);
+    colors = zeros(bins,1);
 
     for i = 1:s(1)-se_dim + 1
     for j = 1:s(2)-se_dim + 1
@@ -24,13 +28,8 @@ function h = compute_CSD(hmmd_img,bins,quantification)
         end
 
         h = h + colors; % Accumulate the colors into the CSD feature vector
-        colors = zeros(quantification,1);        
+        colors = zeros(bins,1);        
     end
     end
-    
-    N = numel(h);
-    step = ceil(N/bins);
-    h2 = accumarray((1:N)', h, [], @(x) sum(x));
-    h = h2(1:step:end);
 end
 
