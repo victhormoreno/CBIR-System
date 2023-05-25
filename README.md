@@ -17,7 +17,7 @@ Si desitges obtenir informació més detallada i tècnica sobre el sistema, aix�
 Els informes disponibles són:
 
 1. Informe del prog1: [Descarrega aquí](docs/reports/memoria_prog1_moreno_justo.pdf)
-2. Informe del prog2: [Descarrega aquí](doc/reports/informe_rendiment.pdf)
+2. Informe del prog2: [Descarrega aquí](docs/reports/memoria_prog2_moreno_justo.pdf)
 
 La primera versió del sistema (prog 1) es pot trobar a la branca [prog1](../../tree/prog1) d'aquest repositori. Aquesta, utilitza l'histograma de la imatge en escala de grisos com a descriptor en lloc del CSD.
 

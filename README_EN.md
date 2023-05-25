@@ -19,7 +19,7 @@ If you want more detailed and technical information about the system, as well as
 The available reports are:
 
 1. prog1 report: [Download here](docs/reports/memoria_prog1_moreno_justo.pdf)
-2. prog2 report: [Download here](doc/reports/informe_rendiment.pdf)
+2. prog2 report: [Download here](docs/reports/memoria_prog2_moreno_justo.pdf)
 
 The first version of the system (prog 1) can be found at branch [prog1](../../tree/prog1) from this repository. This one uses the histogram of the grayscale image as a descriptor in the CSD location.
 
