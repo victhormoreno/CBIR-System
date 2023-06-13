@@ -77,7 +77,7 @@ Modifica els paràmetres segons les teves preferències. Edita la primera secci�
 update_H = false; % True: update H matrix from data
 path = 'C:\Users\victo\Desktop\prog2'; % Path to own project folder
 quantification = 256; % Number of levels img hmmd: 128 or 256
-bins = 128; Number bins of the descritor
+bins = 128; %Number bins of the descritor
 dist_type = 'bachata'; % Options: 'mse' / 'chi' / 'bachata'
 N = 10; % Number of candidates per image
 ```
