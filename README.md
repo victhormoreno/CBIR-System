@@ -73,7 +73,7 @@ Un cop descarregada, descomprimeix-la i guarda els arxius d'imatge a la carpeta 
 #### 2.1. Canviar els paràmetres
 Modifica els paràmetres segons les teves preferències. Edita la primera secció del fitxer [`/scripts/cbir_system.m`](scripts/cbir_system.m) per especificar les opcions de cerca i els descriptors que vols emprar.
 
-```
+```matlab
 update_H = false; % True: update H matrix from data
 path = 'C:\Users\victo\Desktop\prog2'; % Path to own project folder
 quantification = 256; % Number of levels img hmmd: 128 or 256
